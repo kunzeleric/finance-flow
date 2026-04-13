@@ -1,1 +1,6 @@
-export { auth as proxy } from "@/src/lib/auth";
+import { NextRequest, NextResponse } from "next/server";
+import { updateSession } from "./src/lib/supabase/proxy";
+
+export async function proxy(request: NextRequest) {
+  return await updateSession(request);
+}
